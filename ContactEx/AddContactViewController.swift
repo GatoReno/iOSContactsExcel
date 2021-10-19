@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import ContactsUI
+import Contacts
 
 class AddContactViewController: UIViewController {
 
     var name: String?
     var lastName: String?
-    var emaail: String?
+    var email: String?
     var phone: String?
     
     @IBOutlet weak var contactNameTextField: UITextField!
@@ -27,10 +29,38 @@ class AddContactViewController: UIViewController {
     
     @IBAction func addButtonAction(_ sender: UIButton) {
         
-        
+        checkValues()
     }
     
     func checkValues(){
+        name = contactNameTextField.text
+        lastName = contactLastNameTextField.text
+        email = contactEmailTextField.text
+        phone = contactPhoneTextField.text
+        
+        if  name == ""{
+            contactNameTextField.becomeFirstResponder()
+        }
+        else if phone == ""{
+            contactPhoneTextField.becomeFirstResponder()
+        }
+        else{
+            let store = CNContactStore()
+                  let contact = CNMutableContact()
+
+                  // Name
+                  contact.givenName = name ?? ""
+                  
+
+                  // Phone
+                  contact.phoneNumbers.append(CNLabeledValue(
+                      label: "mobile", value: CNPhoneNumber(stringValue: phone ?? "")))
+
+                  // Save
+                  let saveRequest = CNSaveRequest()
+                  saveRequest.add(contact, toContainerWithIdentifier: nil)
+                  try? store.execute(saveRequest)
+        }
         
     }
     
