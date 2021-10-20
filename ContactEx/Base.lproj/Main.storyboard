@@ -24,22 +24,10 @@
                                     <action selector="addButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HHK-fa-izu"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qGT-V5-6cH">
-                                <rect key="frame" x="149" y="149" width="120" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="xJK-H3-6nL"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="snackbar"/>
-                                <connections>
-                                    <action selector="snackButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S62-sQ-ypF"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="qGT-V5-6cH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="105" id="4Mp-Q4-jT8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CnD-Iv-fVg" secondAttribute="trailing" constant="10" id="ZUQ-ny-Ihj"/>
                             <constraint firstItem="CnD-Iv-fVg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="35" id="wFn-mh-4yZ"/>
                         </constraints>

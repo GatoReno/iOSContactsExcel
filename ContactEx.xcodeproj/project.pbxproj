@@ -17,8 +17,6 @@
 		64119AD6271E0A50008E3D6E /* ContactExUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64119AD5271E0A50008E3D6E /* ContactExUITests.swift */; };
 		64119AD8271E0A50008E3D6E /* ContactExUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64119AD7271E0A50008E3D6E /* ContactExUITestsLaunchTests.swift */; };
 		64119AE9271E1404008E3D6E /* AddContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64119AE8271E1404008E3D6E /* AddContactViewController.swift */; };
-		64EA1B57271F1DC400494C40 /* SnackbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EA1B56271F1DC400494C40 /* SnackbarView.swift */; };
-		64EA1B59271F1DD900494C40 /* SnackbarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EA1B58271F1DD900494C40 /* SnackbarViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,8 +51,6 @@
 		64119AD5271E0A50008E3D6E /* ContactExUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactExUITests.swift; sourceTree = "<group>"; };
 		64119AD7271E0A50008E3D6E /* ContactExUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactExUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		64119AE8271E1404008E3D6E /* AddContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddContactViewController.swift; path = ContactEx/AddContactViewController.swift; sourceTree = "<group>"; };
-		64EA1B56271F1DC400494C40 /* SnackbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackbarView.swift; sourceTree = "<group>"; };
-		64EA1B58271F1DD900494C40 /* SnackbarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackbarViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +101,6 @@
 		64119AB3271E0A4B008E3D6E /* ContactEx */ = {
 			isa = PBXGroup;
 			children = (
-				64EA1B55271F1D9100494C40 /* Snackbar */,
 				64119AE7271E1341008E3D6E /* Controllers */,
 				64119AB4271E0A4B008E3D6E /* AppDelegate.swift */,
 				64119AB6271E0A4B008E3D6E /* SceneDelegate.swift */,
@@ -142,15 +137,6 @@
 			);
 			name = Controllers;
 			path = ..;
-			sourceTree = "<group>";
-		};
-		64EA1B55271F1D9100494C40 /* Snackbar */ = {
-			isa = PBXGroup;
-			children = (
-				64EA1B56271F1DC400494C40 /* SnackbarView.swift */,
-				64EA1B58271F1DD900494C40 /* SnackbarViewModel.swift */,
-			);
-			path = Snackbar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,9 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				64119AB9271E0A4B008E3D6E /* ViewController.swift in Sources */,
-				64EA1B57271F1DC400494C40 /* SnackbarView.swift in Sources */,
 				64119AE9271E1404008E3D6E /* AddContactViewController.swift in Sources */,
-				64EA1B59271F1DD900494C40 /* SnackbarViewModel.swift in Sources */,
 				64119AB5271E0A4B008E3D6E /* AppDelegate.swift in Sources */,
 				64119AB7271E0A4B008E3D6E /* SceneDelegate.swift in Sources */,
 			);

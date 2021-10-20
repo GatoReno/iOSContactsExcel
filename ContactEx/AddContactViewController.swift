@@ -16,6 +16,8 @@ class AddContactViewController: UIViewController {
     var email: String?
     var phone: String?
     
+    var store: CNContactStore!
+    
     @IBOutlet weak var contactNameTextField: UITextField!
     
     @IBOutlet weak var contactLastNameTextField: UITextField!
@@ -38,38 +40,59 @@ class AddContactViewController: UIViewController {
         email = contactEmailTextField.text
         phone = contactPhoneTextField.text
         
-        if  name == ""{
-            contactNameTextField.becomeFirstResponder()
+        if  name == "" {
+             contactNameTextField.becomeFirstResponder()
+            showToast(message: "Name missing")
         }
         else if phone == ""{
-            contactPhoneTextField.becomeFirstResponder()
+             contactPhoneTextField.becomeFirstResponder()
+            showToast(message: "Phone missing")
         }
         else{
-            let store = CNContactStore()
-                  let contact = CNMutableContact()
-
-                  // Name
-                  contact.givenName = name ?? ""
-                  
-
-                  // Phone
-                  contact.phoneNumbers.append(CNLabeledValue(
-                      label: "mobile", value: CNPhoneNumber(stringValue: phone ?? "")))
-
-                  // Save
-                  let saveRequest = CNSaveRequest()
-                  saveRequest.add(contact, toContainerWithIdentifier: nil)
-                  try? store.execute(saveRequest)
+            saveContact()
         }
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        store = CNContactStore()
 
         // Do any additional setup after loading the view.
     }
     
+    func saveContact(){
+        do{
+                    let contact = CNMutableContact()
+                contact.givenName = name!
+                contact.familyName = lastName!
+                contact.phoneNumbers = [CNLabeledValue(
+                    label:CNLabelPhoneNumberiPhone,
+                    value:CNPhoneNumber(stringValue:phone!)),
+                          CNLabeledValue(
+                        label:CNLabelPhoneNumberiPhone,
+                        value:CNPhoneNumber(stringValue:phone!))]
+
+                //let workEmail = CNLabeledValue(label:CNLabelWork, value:email)
+                //contact.emailAddresses = [workEmail]
+
+
+//                let saveRequest = CNSaveRequest()
+//            saveRequest.addMember(contact, to: <#T##CNGroup#>)
+            
+            let saveRequest = CNSaveRequest()
+            saveRequest.add(contact, toContainerWithIdentifier: nil)
+         
+            
+            try store.execute(saveRequest)
+                    print("saved")
+                    showToast(message: "Contact saved")
+                }
+                catch{
+                    print("error")
+                    showToast(message: "Something happed")
+                }
+    }
 
     /*
     // MARK: - Navigation
@@ -83,3 +106,37 @@ class AddContactViewController: UIViewController {
 
 
 }
+
+
+
+extension UIViewController{
+    func showToast(message: String){
+        let toast = UILabel(frame: CGRect(
+            x: self.view.frame.width/2-75,
+            y: self.view.frame.height - 100,
+            width: 150, height: 40))
+        toast.textAlignment = .center
+        toast.backgroundColor = .label
+        toast.textColor = .systemBackground
+        toast.alpha = 1.0
+        toast.layer.cornerRadius = 10
+        toast.clipsToBounds = true
+        toast.text = message
+        self.view.addSubview(toast)
+        
+        UIView.animate(
+            withDuration: 4.0,
+            delay: 1.0,
+            options: .curveEaseInOut,
+            animations: {
+                toast.alpha = 0.0
+            }) { (isCompleted) in
+                toast.removeFromSuperview()
+            }
+    }
+}
+
+
+
+
+
