@@ -9,7 +9,7 @@ import UIKit
 import ContactsUI
 import Contacts
 
-class AddContactViewController: UIViewController {
+class AddContactViewController: UIViewController , UITextFieldDelegate {
 
     var name: String?
     var lastName: String?
@@ -31,6 +31,27 @@ class AddContactViewController: UIViewController {
     
     @IBAction func addButtonAction(_ sender: UIButton) {
         checkValues()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        
+        store = CNContactStore()
+        
+        contactNameTextField.delegate = self
+        contactLastNameTextField.delegate = self
+        contactEmailTextField.delegate = self
+        contactPhoneTextField.delegate = self
+        // Do any additional setup after loading the view.
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        contactNameTextField.resignFirstResponder()
+        contactLastNameTextField.resignFirstResponder()
+        contactEmailTextField.resignFirstResponder()
+        contactPhoneTextField.resignFirstResponder()
+        return true
     }
     
     func checkValues(){
@@ -82,12 +103,7 @@ class AddContactViewController: UIViewController {
             }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        store = CNContactStore()
-
-        // Do any additional setup after loading the view.
-    }
+   
     
     func saveContact(){
         do{
