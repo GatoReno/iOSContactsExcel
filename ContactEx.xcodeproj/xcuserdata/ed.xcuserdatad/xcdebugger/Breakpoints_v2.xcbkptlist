@@ -14,10 +14,10 @@
             filePath = "ContactEx/AddContactViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
-            landmarkName = "saveContact()"
-            landmarkType = "7">
+            startingLineNumber = "124"
+            endingLineNumber = "124"
+            landmarkName = "AddContactViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -30,8 +30,8 @@
             filePath = "ContactEx/AddContactViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
             landmarkName = "getContacts()"
             landmarkType = "7">
          </BreakpointContent>
