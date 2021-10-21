@@ -30,7 +30,6 @@ class AddContactViewController: UIViewController {
     
     
     @IBAction func addButtonAction(_ sender: UIButton) {
-        
         checkValues()
     }
     
@@ -53,6 +52,35 @@ class AddContactViewController: UIViewController {
         }
         
     }
+    var contacts = [FetchedContact]()
+
+    func getContacts()
+    {
+        let store = CNContactStore()
+            store.requestAccess(for: .contacts) { (granted, error) in
+                if let error = error {
+                    print("failed to request access", error)
+                    return
+                }
+                if granted {
+                    // 2.
+                    let keys = [CNContactGivenNameKey, CNContactFamilyNameKey, CNContactPhoneNumbersKey]
+                    let request = CNContactFetchRequest(keysToFetch: keys as [CNKeyDescriptor])
+                    do {
+                        // 3.
+                        try store.enumerateContacts(with: request, usingBlock: { (contact, stopPointer) in
+                            self.contacts.append(FetchedContact(firstName: contact.givenName, lastName: contact.familyName, telephone: contact.phoneNumbers.first?.value.stringValue ?? ""))
+                            
+                            print(self.contacts)
+                        })
+                    } catch let error {
+                        print("Failed to enumerate contact", error)
+                    }
+                } else {
+                    print("access denied")
+                }
+            }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,35 +91,34 @@ class AddContactViewController: UIViewController {
     
     func saveContact(){
         do{
-                    let contact = CNMutableContact()
+                let contact = CNMutableContact()
                 contact.givenName = name!
                 contact.familyName = lastName!
                 contact.phoneNumbers = [CNLabeledValue(
                     label:CNLabelPhoneNumberiPhone,
                     value:CNPhoneNumber(stringValue:phone!)),
                           CNLabeledValue(
-                        label:CNLabelPhoneNumberiPhone,
-                        value:CNPhoneNumber(stringValue:phone!))]
+                            label:CNLabelPhoneNumberiPhone,
+                            value:CNPhoneNumber(stringValue:phone!))]
 
-                //let workEmail = CNLabeledValue(label:CNLabelWork, value:email)
-                //contact.emailAddresses = [workEmail]
-
-
-//                let saveRequest = CNSaveRequest()
-//            saveRequest.addMember(contact, to: <#T##CNGroup#>)
+                let workEmail = CNLabeledValue(label:CNLabelWork, value:email! as NSString)
+                contact.emailAddresses = [workEmail]
             
-            let saveRequest = CNSaveRequest()
-            saveRequest.add(contact, toContainerWithIdentifier: nil)
-         
-            
-            try store.execute(saveRequest)
-                    print("saved")
-                    showToast(message: "Contact saved")
-                }
-                catch{
-                    print("error")
-                    showToast(message: "Something happed")
-                }
+                let saveRequest = CNSaveRequest()
+                saveRequest.add(contact, toContainerWithIdentifier: nil)
+                try store.execute(saveRequest)
+                        print("saved")
+                        
+                        //self.dismiss(animated: true, completion: nil) navigate back
+                        showToast(message: "Contact saved")
+                    }
+                    catch{
+                        print("error")
+                        let alert = UIAlertController(title: "Error", message: "Something happened pleaase check the values and try again.", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                        self.present(alert, animated: true)
+                        showToast(message: "Something happed")
+                    }
     }
 
     /*
@@ -106,7 +133,6 @@ class AddContactViewController: UIViewController {
 
 
 }
-
 
 
 extension UIViewController{

@@ -24,16 +24,34 @@
                                     <action selector="addButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HHK-fa-izu"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="47J-dF-u6E">
+                                <rect key="frame" x="20" y="137" width="374" height="585"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="contactCell" id="bcd-vw-j0C">
+                                        <rect key="frame" x="0.0" y="44.5" width="374" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bcd-vw-j0C" id="wy8-rZ-tNa">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="47J-dF-u6E" secondAttribute="trailing" constant="20" id="4ru-e0-aIR"/>
+                            <constraint firstItem="47J-dF-u6E" firstAttribute="top" secondItem="CnD-Iv-fVg" secondAttribute="bottom" constant="27" id="YUM-cA-ESt"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CnD-Iv-fVg" secondAttribute="trailing" constant="10" id="ZUQ-ny-Ihj"/>
+                            <constraint firstItem="47J-dF-u6E" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="o0Y-xw-Hid"/>
                             <constraint firstItem="CnD-Iv-fVg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="35" id="wFn-mh-4yZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="47J-dF-u6E" secondAttribute="bottom" constant="140" id="z13-aI-F0Y"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="addButton" destination="CnD-Iv-fVg" id="uyb-OL-fOv"/>
+                        <outlet property="contactsTableView" destination="47J-dF-u6E" id="iQo-Ub-AWC"/>
                         <segue destination="2uK-cW-GQm" kind="show" identifier="goToAddContact" id="zVo-cA-PRL"/>
                     </connections>
                 </viewController>

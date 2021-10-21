@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6410975A27209EA00019186E /* toastExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6410975927209EA00019186E /* toastExtension.swift */; };
+		6410975D2720B1340019186E /* FetchedContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6410975C2720B1340019186E /* FetchedContact.swift */; };
 		64119AB5271E0A4B008E3D6E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64119AB4271E0A4B008E3D6E /* AppDelegate.swift */; };
 		64119AB7271E0A4B008E3D6E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64119AB6271E0A4B008E3D6E /* SceneDelegate.swift */; };
 		64119AB9271E0A4B008E3D6E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64119AB8271E0A4B008E3D6E /* ViewController.swift */; };
@@ -37,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6410975927209EA00019186E /* toastExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toastExtension.swift; sourceTree = "<group>"; };
+		6410975C2720B1340019186E /* FetchedContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchedContact.swift; sourceTree = "<group>"; };
 		64119AB1271E0A4B008E3D6E /* ContactEx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactEx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64119AB4271E0A4B008E3D6E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		64119AB6271E0A4B008E3D6E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +82,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6410975727209B920019186E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6410975927209EA00019186E /* toastExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		6410975B2720B1290019186E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6410975C2720B1340019186E /* FetchedContact.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		64119AA8271E0A4B008E3D6E = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +121,8 @@
 		64119AB3271E0A4B008E3D6E /* ContactEx */ = {
 			isa = PBXGroup;
 			children = (
+				6410975B2720B1290019186E /* Models */,
+				6410975727209B920019186E /* Extensions */,
 				64119AE7271E1341008E3D6E /* Controllers */,
 				64119AB4271E0A4B008E3D6E /* AppDelegate.swift */,
 				64119AB6271E0A4B008E3D6E /* SceneDelegate.swift */,
@@ -272,8 +294,10 @@
 			files = (
 				64119AB9271E0A4B008E3D6E /* ViewController.swift in Sources */,
 				64119AE9271E1404008E3D6E /* AddContactViewController.swift in Sources */,
+				6410975D2720B1340019186E /* FetchedContact.swift in Sources */,
 				64119AB5271E0A4B008E3D6E /* AppDelegate.swift in Sources */,
 				64119AB7271E0A4B008E3D6E /* SceneDelegate.swift in Sources */,
+				6410975A27209EA00019186E /* toastExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
